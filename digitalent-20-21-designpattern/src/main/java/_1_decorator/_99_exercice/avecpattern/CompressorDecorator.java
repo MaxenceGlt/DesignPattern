@@ -5,21 +5,21 @@ import _1_decorator._99_exercice.DataSource;
 
 public class CompressorDecorator extends DataSourceDecorator {
 
-    private Compressor m_compressor;
+    private Compressor compressor;
 
     CompressorDecorator(DataSource dataSource) {
         super(dataSource);
-        m_compressor = new Compressor();
+        compressor = new Compressor();
     }
 
     @Override
     public void writeData(String data) {
-        dataSource.writeData(m_compressor.compress(data));
+        dataSource.writeData(compressor.compress(data));
     }
 
     @Override
     public String readData() {
-        return m_compressor.decompress(dataSource.readData());
+        return compressor.decompress(dataSource.readData());
     }
 
 }
